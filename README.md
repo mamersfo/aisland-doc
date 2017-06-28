@@ -13,6 +13,10 @@ You can call the web service at the following URL:
 You can inspect the Swagger page here:
 
     http://172.16.32.50:8080/swagger-ui.html
+    
+### Challenge
+
+So the challenge is to program a bot that competes in a digital board game. First you have to register, so you can be identified as a player after login. Each game round there are a limited number of spots, so you might have to queue first. But once you're in, the purpose of the game is to conquer nodes, by spreading from the nodes you own to other nodes. If you conquer them all, you win.
 
 ### Register
 
@@ -74,7 +78,7 @@ In the response a session token is returned, that you will need in order to ente
 
 So it is suggested you store it for later use.
 
-### Enter
+### Queue
 
 Although the video wall at De Schouwburg is kind of huge, the screen might still be too small in order to accomodate all players at the same time. Therefore, in order to enter the game, you should enter the queue first:
 
@@ -113,9 +117,9 @@ Which amounts to something like this:
 
 So Kathy has become second in line, out of a maximum total of 50 users that can be held in the queue.
 
-### Queue
+### Enter
 
-After each round, users are taken from the queue, and are set up to play in matches. So after entering the game you should check `matches` regularly to find out if you've been selected to perform in a match, and against which opponent:
+After each round, users are taken from the queue, and are set up to enter a match. So after entering the game you should check `matches` regularly to find out if you've been selected to perform in a match, and against which opponent:
 
     GET /matches
     
@@ -267,7 +271,7 @@ This makes it so that the coordinates of the adjacent nodes depend on the Y-posi
 
 ![Image](img/3.png)
 
-Kit
+### Kit
 
 In order to get you up to speed, there are starter kits are available to you for the following languages:
 
