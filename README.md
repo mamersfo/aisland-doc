@@ -148,18 +148,18 @@ Response:
         "matchRules": {
           "id": 1,
           "actionCosts": {
-            "EMPOWER": 8,
-            "POWERLINE": 46,
-            "OVERCLOCK": 58,
-            "STORAGE": 16,
+            "EMPOWER": 10,
+            "POWERLINE": 40,
+            "OVERCLOCK": 60,
+            "STORAGE": 10,
             "SLEEP": 0,
-            "DISCHARGE": 26,
-            "SPREAD": 11,
-            "SPREADALL": 14,
-            "SPREADLINE": 63,
-            "GUARD": 63,
-            "EXPLODE": 65,
-            "DRAIN": 4
+            "DISCHARGE": 30,
+            "SPREAD": 10,
+            "SPREADALL": 40,
+            "SPREADLINE": 60,
+            "GUARD": 30,
+            "EXPLODE": 80,
+            "DRAIN": 5
           },
           "fluctuation": 0.2
         },
@@ -204,20 +204,20 @@ So the board consists of `10 x 10 = 100` nodes, and John - our competitor - is s
 
 Now, the purpose of this game is to remove all other players from this game board, by spreading from the nodes you own to all other nodes through a series of actions:
 
-| Action | Name | Description | Cost (example) |
+| Action | Name | Description | Default cost |
 | --- | ------ | ----------- | -------------- |
 | 0 | SLEEP | Do nothing | 0 |
-| 1 | SPREAD | Spreads to 1 adjacent node | 11 |
-| 2 | SPREADALL | Spreads to all adjacent nodes | 14 |
-| 3 | SPREADLINE | Spreads to 5 nodes in a straight line from this node | 63 | 
-| 4 | EMPOWER | Gives 5% power to adjacent node with lowest power | 8 |
-| 5 | DISCHARGE | Splits remaining power with adjacent node and sells special type | 26 |
-| 6 | POWERLINE | Nodes can consume the power from adjacent or connected powerline nodes | 46 | 
-| 7 | OVERCLOCK | This node becomes overclocked, an overclocked node generates power 3x as fast | 58 | 
-| 8 | GUARD | A guarded node is protected against 1 takeover and blocks line spreads | 63 |
-| 9 | STORAGE | This node can store 3x as much power | 16 |
-| 10 | DRAIN | Consumes 5 power from an adjacent enemy node | 4 |
-| 11 | EXPLODE | Neutralizes all nodes within two tiles of this node, including your own | 65 |
+| 1 | SPREAD | Spreads to 1 adjacent node | 10 |
+| 2 | SPREADALL | Spreads to all adjacent nodes | 40 |
+| 3 | SPREADLINE | Spreads to 5 nodes in a straight line from this node | 60 | 
+| 4 | EMPOWER | Gives 5% power to adjacent node with lowest power | 10 |
+| 5 | DISCHARGE | Splits remaining power with adjacent node and sells special type | 30 |
+| 6 | POWERLINE | Nodes can consume the power from adjacent or connected powerline nodes | 50 | 
+| 7 | OVERCLOCK | This node becomes overclocked, an overclocked node generates power 3x as fast | 70 | 
+| 8 | GUARD | A guarded node is protected against 1 takeover and blocks line spreads | 30 |
+| 9 | STORAGE | This node can store 3x as much power | 20 |
+| 10 | DRAIN | Consumes 5 power from an adjacent enemy node | 5 |
+| 11 | EXPLODE | Neutralizes all nodes within two tiles of this node, including your own | 80 |
 
 So there are many ways to conquer nodes, but each will cost you a certain amount of 'power' units. How much, you will be able to look up in the `/rounds` response (see before).
 
