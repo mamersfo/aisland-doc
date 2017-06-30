@@ -70,7 +70,7 @@ With a JSON body like this:
       "password": "secret"
     }
     
-In the response a session token is returned, that you will need in order to enter the game and play matches:
+In the response a token is returned, that you will need in order to enter the game and play matches:
 
     {
       "value": "AC5738D6BF937C4399D3747AE081783D"
@@ -82,7 +82,7 @@ So it is suggested you store it for later use.
 
 Although the video wall at De Schouwburg is kind of huge, the screen might still be too small in order to accomodate all players at the same time. Therefore, in order to enter the game, you should enter the queue first:
 
-    PUT /queue/{playerId}/{sessionToken}
+    PUT /queue/{playerId}/{token}
     
 In Kathy's case:
 
@@ -119,9 +119,9 @@ So Kathy has become second in line, out of a maximum total of 50 users that can 
 
 ### Enter
 
-After each round, users are taken from the queue, and are set up to enter a match. So after entering the game you should check `matches` regularly to find out if you've been selected to perform in a match, and against which opponent:
+After each round, users are taken from the queue, and are set up to enter a match. So after entering the game you should check `rounds` regularly to find out if you've been selected to perform in a match, and against which opponent:
 
-    GET /matches
+    GET /rounds
     
 Response:
 
@@ -173,7 +173,7 @@ So that means we're in, and we can make some moves in this match. But before we 
 
 To inspect the board, we call:
 
-    GET /matches/{matchId}/map
+    GET /rounds/{roundId}/map
     
 In our case `matchId` equals 1. The result will look something like this:
 
@@ -219,7 +219,7 @@ Now, the purpose of this game is to remove all other players from this game boar
 | 10 | DRAIN | Consumes 5 power from an adjacent enemy node | 4 |
 | 11 | EXPLODE | Neutralizes all nodes within two tiles of this node, including your own | 65 |
 
-So there are many ways to conquer nodes, but each will cost you a certain amount of 'power' units. How much, you will be able to look up in the `/matches` response (see before).
+So there are many ways to conquer nodes, but each will cost you a certain amount of 'power' units. How much, you will be able to look up in the `/rounds` response (see before).
 
 On the other hand, each node you conquer will gain you its power. Moreover, each turn, the power of a node increases to a maximum of 100.
 
@@ -229,7 +229,7 @@ So ultimately you would have to balance the actions based on the power you posse
 
 To conquer a node you need to move to it. At each turn, you are allowed to make at most one move for each node that you own, and tell the server how (action) and whereto (direction) you want to make those moves.
 
-    POST /matches/{matchId}/players/{playerId}/moves
+    POST /rounds/{roundId}/players/{playerId}/moves
     
 For example, with body:
 
@@ -275,5 +275,5 @@ This makes it so that the coordinates of the adjacent nodes depend on the Y-posi
 
 In order to get you up to speed, there are starter kits are available to you for the following languages:
 
-- [Java](https://github.com/Dionvd/JCIC)
+- [Java](https://github.com/Dionvd/JCIC-JavaStarter)
 - [Clojure](https://github.com/mamersfo/aisland-clj)
